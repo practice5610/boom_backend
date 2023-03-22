@@ -65,6 +65,7 @@ export class UsersController {
   @get('/admin/user/{uid}', GETAdminUserSpecification)
   async getUserById(@param.path.string('uid') uid: string): Promise<Response<APIResponse<any>>> {
     try {
+      console.log("testcommit")
       const currentUser: AllOptionalExceptFor<BoomUser, 'roles' | 'uid'> | undefined =
         await this.currentUserGetter();
       if (!currentUser) throw new HttpErrors.NotFound(ProfileResponseMessages.MEMBER_NOT_FOUND);
